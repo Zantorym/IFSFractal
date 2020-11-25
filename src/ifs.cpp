@@ -2,8 +2,8 @@
 // #include <cmath>
 
 #define NUM_POINTS 1500000
-#define WIN_WIDTH 1800
-#define WIN_HEIGHT 900
+#define WIDTH 1800
+#define HEIGHT 900
 
 std::vector<std::vector<double>> affineTransformations
 {
@@ -51,7 +51,7 @@ void generatePoints()
 }
 
 int main(int, char* argv[]) {
-  GLFWwindow* window = setupWindow(WIN_WIDTH, WIN_HEIGHT);
+  GLFWwindow* window = setupWindow(WIDTH, HEIGHT);
   ImGuiIO& io = ImGui::GetIO(); // Create IO object
 
   ImVec4 clear_color = ImVec4(1.0f, 1.0f, 1.0f, 1.0f);
@@ -314,7 +314,7 @@ int main(int, char* argv[]) {
 
     // Draw points
     glBindVertexArray(VAO_points);
-    glPointSize(WIN_WIDTH*WIN_HEIGHT/NUM_POINTS);
+    glPointSize(WIDTH*HEIGHT/NUM_POINTS);
     glDrawArrays(GL_POINTS, 0, points.size()/3);
 
     // glUseProgram(0);
